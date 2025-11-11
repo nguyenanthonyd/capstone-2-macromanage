@@ -13,10 +13,10 @@ public class Order {
         addBowl(bowl)
         addDrink(drink)
         addSide(side)
-        isEmpty() → boolean                   // true if no bowls
-        hasDrinkOrSide() → boolean            // for zero-items rule
-        getTotal() → number                   // sums item prices
-        summaryText() → string                // newest-first listing with line-item prices
+        isEmpty()  boolean                   // true if no bowls
+        hasDrinkOrSide()  boolean            // for zero-items rule
+        getTotal()  number                   // sums item prices
+        summaryText()  string                // newest-first listing with line-item prices
 }
 
      */
