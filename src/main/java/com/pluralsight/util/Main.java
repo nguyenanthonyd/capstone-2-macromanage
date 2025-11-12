@@ -31,7 +31,7 @@ public class Main {
 
         // add premium toppings
         menu.addAddon("Avocado")
-        menu.addAddon("Soft-Boiled Egg)
+        menu.addAddon("Fried-Egg)
         menu.addAddon("Feta Cheese Crumbles")
         menu.addAddon("Japanese Sweet Potato Cubes")
 

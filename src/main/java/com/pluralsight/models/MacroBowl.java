@@ -1,7 +1,15 @@
 package com.pluralsight.models;
 
-public class MacroBowl {
+import com.pluralsight.models.enums.BaseType;
+import com.pluralsight.models.enums.Size;
+import com.pluralsight.models.enums.SpecialOption;
 
+public class MacroBowl {
+    private Size size;
+    private BaseType baseType;
+    private List<ToppingSelection> topping;
+    private SpecialOption specialOption;
+}
     /* properties:
     size ( small,medium,large)
     baseType base
@@ -15,16 +23,18 @@ public class MacroBowl {
     properties:
         size                 small, medium, large
         baseType             Mixed greens, rice, brown rice, white rice
-        bowlType             signature items: Super Saiyan 4 Remsey bowl, Mass Monster Markus, Brawn Amaan
+        omit(bowlType)                      signature items: Super Saiyan 4 Remsey bowl, Mass Monster Markus, Brawn Amaan
         toppings (ArrayList of ToppingSelection)  // each has: topping + extra(boolean)
         specialOption        none, power_sear,
 
     methods:
         addProtein(type, extra)           steak, chicken, pork, salmon, shrimp, lamb
-        addCheese(type, extra)            avocado, portobello
-        addRegularTopping(type)           broccoli, corn, tomato, cucumber, peppers
+        addPremiumTopping(type, extra)    avocado,Fried-egg, Feta-cheese crumbles, japanese sweet potato cubes
+        addRegularTopping(type)           broccoli, corn, tomato, cucumber, peppers,spinach ,mango salsa, caramelized
+                                          onions , carrots
+
         addCondiment(type)                tzatziki, garlic lime aioli, honey sriracha, citrust soy vinaigrette ,
-                                          thaichilichimichurri
+                                          thaichimichurri
         setSpecial(option)                 power_sear, none
 
         getPrice(): number
