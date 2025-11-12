@@ -4,7 +4,7 @@ public class PriceTable {
 /* methods:
  baseBowl(bowlType, size)  number
 // base by size
-     /       if size == small   return 5.50
+     //      if size == small   return 5.50
             if size == medium  return 7.00
             if size == large   return 8.50
 
