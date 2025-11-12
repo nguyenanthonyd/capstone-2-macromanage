@@ -2,11 +2,11 @@ package com.pluralsight;
 
 public class PriceTable {
 /* methods:
- baseBowl(bowlType, size) → number
+ baseBowl(bowlType, size)  number
 // base by size (same across types is fine unless you want variety)
-            if size == small  → return 5.50
-            if size == medium → return 7.00
-            if size == large  → return 8.50
+            if size == small   return 5.50
+            if size == medium  return 7.00
+            if size == large   return 8.50
 
         toppingCharge(category, size, extra, premium) → number
              regular veg & sauces are included
@@ -34,17 +34,17 @@ public class PriceTable {
                 else:
                     return 0.00
 
-        specialSurcharge(opt, size) → number
-            if opt == power_sear → return (size==small?0.50 : size==medium?0.75 : 1.00)
-            if opt == warm       → return 0.50
-            if opt == chilled    → return 0.00
+        specialSurcharge(opt, size)  number
+            if opt == power_sear  return (size==small?0.50 : size==medium?0.75 : 1.00)
+            if opt == warm        return 0.50
+            if opt == chilled     return 0.00
             return 0.00
 
         drink(size) → number
-            if size == small → 2.00
-            if size == medium → 2.50
-            if size == large → 3.00
+            if size == small  2.00
+            if size == medium 2.50
+            if size == large 3.00
 
-         side() → number
+         side() number
             return 1.50
 }
