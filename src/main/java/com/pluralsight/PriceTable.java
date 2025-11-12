@@ -3,14 +3,14 @@ package com.pluralsight;
 public class PriceTable {
 /* methods:
  baseBowl(bowlType, size)  number
-// base by size (same across types is fine unless you want variety)
+// base by size
             if size == small   return 5.50
             if size == medium  return 7.00
             if size == large   return 8.50
 
         toppingCharge(category, size, extra, premium) → number
              regular veg & sauces are included
-            if category == regular_veg or category == sauce:
+            if category == regularVeg or category == sauce:
                 return 0.00
 
             proteins: 1/2/3 + extra meat surcharge .5/1/1.5
