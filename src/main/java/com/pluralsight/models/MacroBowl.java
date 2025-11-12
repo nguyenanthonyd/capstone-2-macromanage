@@ -1,7 +1,8 @@
 package com.pluralsight.models;
 
 public class MacroBowl {
-/* properties:
+
+    /* properties:
     size ( small,medium,large)
     baseType base
     toppings <List>
