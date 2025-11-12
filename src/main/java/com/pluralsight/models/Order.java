@@ -24,7 +24,7 @@ method summaryText()  string
     text += current date and time + "\n\n"
 
     // show bowls (newest first)
-    IF bowls not empty:
+    if bowls not empty:
         text += "Bowls:\n"
         FOR i from bowls.size()-1 down to 0:
             bowl = bowls[i]
@@ -32,7 +32,7 @@ method summaryText()  string
             text += "    $" + bowl.getPrice() + "\n\n"
 
     // show drinks (newest first)
-    IF drinks not empty:
+    if drinks not empty:
         text += "Drinks:\n"
         FOR i from drinks.size()-1 down to 0:
             drink = drinks[i]
@@ -40,7 +40,7 @@ method summaryText()  string
         text += "\n"
 
     // show sides (newest first)
-    IF sides not empty:
+    if sides not empty:
         text += "Sides:\n"
         FOR i from sides.size()-1 down to 0:
             side = sides[i]

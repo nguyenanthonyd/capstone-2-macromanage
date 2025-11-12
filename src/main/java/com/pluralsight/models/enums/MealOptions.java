@@ -1,6 +1,6 @@
 package com.pluralsight.models.enums;
 
-public class Enum {
+public class MealOptions {
 
     public enum Size {
         SMALL,
@@ -12,5 +12,8 @@ public class Enum {
         BROWN_RICE,
         WHITE_RICE,
         MIXED_GREENS,
+
+
+    }
     }
 }
