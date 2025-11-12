@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.ui;
 
 public class UserInterface {
 /* properties:
@@ -84,8 +84,8 @@ Loop:
     addDrink()
 
         ask size (s, m , l)
-        ask drink type ( Green fiend , acai potion, Protein Powah, Strawberry Lemonade, Blueberry Lemonade
-                         diet coke, diet sprite, gatorade)
+        ask drink type ( Green fiend , acai potion, Protein Powah)
+
         currentOrder.addDrink (new Drink(type, size)
         print drink added
 

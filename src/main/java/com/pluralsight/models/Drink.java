@@ -1,9 +1,9 @@
-package com.pluralsight;
+package com.pluralsight.models;
 
 public class Drink {
 
   /*  properties:
-        type // water, blueberry lemonade, strawberry lemonade ,
+        type // Green fiend , acai potion, Protein Powah ,
 
         size // small, medium, lerge
 
