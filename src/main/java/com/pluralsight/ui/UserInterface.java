@@ -109,5 +109,5 @@ Loop:
          print "Checkout canceled"
 
 
-            getUserChoice() → int
+            getUserChoice() int
     }

@@ -9,8 +9,8 @@ public class PriceTable {
             if size == large   return 8.50
 
         toppingCharge(category, size, extra, premium) number
-             regular veg & sauces are included
-            if category == regularVeg or category == sauce:
+             regular topping& sauces are included
+            if category == regularTopping or category == condiments:
                 return 0.00
 
             proteins: 1/2/3 + extra meat surcharge .5/1/1.5
@@ -21,7 +21,7 @@ public class PriceTable {
                 return price
 
             topping extra: .30/.60/.90 (treat extra == true )
-            if category == cheese:
+            if category == topping extra:
                 if extra == true:
                     return (size==small?0.30 : size == medium?0.60 : 0.90)
                 else:
@@ -36,11 +36,10 @@ public class PriceTable {
 
         specialSurcharge(opt, size)  number
             if opt == power_sear  return (size == small?0.50 : size == medium?0.75 : 1.00)
-            if opt == warm        return 0.50
-            if opt == chilled     return 0.00
-            return 0.00
 
-        drink(size) → number
+               return 0.00
+
+        drink(size)  number
             if size == small  2.00
             if size == medium 2.50
             if size == large 3.00

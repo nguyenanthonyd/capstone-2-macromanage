@@ -4,7 +4,7 @@ public class Topping {
 
     /* properties:
         name
-        category // protein, extra topppings ,addon ,regular_veg , sauce
+        category // protein, extra toppings ,addon ,regular_veg , sauce
         premium: boolean // true protein, extra toppings ,premium addon false for regular_veg, sauce
 
 
