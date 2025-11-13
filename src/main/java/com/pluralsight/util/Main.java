@@ -1,10 +1,66 @@
 package com.pluralsight.util;
 
+import com.pluralsight.models.MenuData;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-// making sure repository pushes
+
+        MenuData menu = new MenuData();
+
+// proteins
+        menu.addProtein("Steak");
+        menu.addProtein("Chicken");
+        menu.addProtein("Pork");
+        menu.addProtein("Salmon");
+        menu.addProtein("Shrimp");
+        menu.addProtein("Lamb");
+
+// premium toppings
+        menu.addPremiumTopping("Avocado");
+        menu.addPremiumTopping("Fried Egg");
+        menu.addPremiumTopping("Feta Cheese Crumbles");
+        menu.addPremiumTopping("Japanese Sweet Potato Cubes");
+
+// regular toppings
+        menu.addRegularTopping("Broccoli");
+        menu.addRegularTopping("Corn");
+        menu.addRegularTopping("Tomato");
+        menu.addRegularTopping("Cucumber");
+        menu.addRegularTopping("Bell Peppers");
+        menu.addRegularTopping("Spinach");
+        menu.addRegularTopping("Mango Salsa");
+        menu.addRegularTopping("Caramelized Onions");
+        menu.addRegularTopping("Carrots");
+
+// condiments
+        menu.addCondiment("Tzatziki");
+        menu.addCondiment("Garlic Lime Aioli");
+        menu.addCondiment("Honey Sriracha");
+        menu.addCondiment("Citrus Soy Vinaigrette");
+        menu.addCondiment("Thai Chimichurri");
+
+// sides
+        menu.addSide("Sweet Potato Bites");
+        menu.addSide("Mediterranean Salad");
+        menu.addSide("Garlic Herb Pita Chips");
+
+// drinks
+        menu.addDrink("Green Fiend");
+        menu.addDrink("Acai Potion");
+        menu.addDrink("Protein Powah");
+        menu.addDrink("Fountain Drink");
+
+
+
+
+
+
+
+
+
+        // making sure repository pushes
        /* Pricetable pt = createPriceTable()
           MenuDate menu = createMenu()
           UserInterface ui = new UserInterface(
@@ -68,6 +124,6 @@ public class Main {
 }
 
         */
-        }
+
     }
 }

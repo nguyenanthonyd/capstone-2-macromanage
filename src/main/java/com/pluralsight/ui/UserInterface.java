@@ -1,7 +1,326 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.models.*;
+import com.pluralsight.models.enums.BaseType;
+import com.pluralsight.models.enums.Size;
+import com.pluralsight.models.enums.SpecialOption;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Scanner;
+
 public class UserInterface {
-/* properties:
+
+    private final PriceTable priceTable;
+    private final MenuData menuData;
+    private final Scanner scanner = new Scanner(System.in);
+
+    public UserInterface(PriceTable priceTable, MenuData menuData) {
+        this.priceTable = priceTable;
+        this.menuData = menuData;
+    }
+
+    //Home Screen
+
+    public void displayHomeScreen() {
+        while (true) {
+            System.out.println("=== MacroManage - Home ===");
+            System.out.println("1) New Order");
+            System.out.println("0) Exit");
+            System.out.print("Choose an option: ");
+
+            int choice = readInt();
+
+            if (choice == 1) {
+                startNewOrder();
+            } else if (choice == 0) {
+                System.out.println("Thank You!");
+                break;
+            } else {
+                System.out.println("Invalid choice. Please try again.\n");
+            }
+        }
+    }
+
+    // Order Screen Loops
+    private void startNewOrder() {
+        Order order = new Order();
+
+        while (true) {
+            System.out.println("\n=== Order Screen ===");
+            System.out.println("(Newest items will appear first on receipt)");
+            System.out.println();
+            System.out.println("1) Add Bowl");
+            System.out.println("2) Add Drink");
+            System.out.println("3) Add Side");
+            System.out.println("4) Checkout");
+            System.out.println("0) Cancel Order");
+            System.out.print("Choose an option: ");
+
+            int choice = readInt();
+
+            if (choice == 1) {
+                addBowl(order);
+            } else if (choice == 2) {
+                addDrink(order);
+            } else if (choice == 3) {
+                addSide(order);
+            } else if (choice == 4) {
+                checkout(order);
+                break;
+            } else if (choice == 0) {
+                System.out.println("Order cancelled.\n");
+                break;
+            } else {
+                System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+
+
+
+    //Adding bowl
+
+    private void addBowl(Order order) {
+        System.out.println("\n--- Add MacroBowl ---");
+
+        // choose base
+        BaseType baseType = chooseBaseType();
+
+        // choose size
+        Size size = chooseSize();
+
+        MacroBowl bowl = new MacroBowl(size, baseType);
+
+        // toppings loop
+        boolean addingToppings = true;
+        while (addingToppings) {
+            System.out.println("\nAdd Toppings:");
+            System.out.println("1) Add Protein");
+            System.out.println("2) Add Premium Topping");
+            System.out.println("3) Add Regular Topping");
+            System.out.println("4) Add Condiment");
+            System.out.println("0) Done with toppings");
+            System.out.print("Choose an option: ");
+
+            int choice = readInt();
+
+            switch (choice) {
+                case 1:
+                    pickToppingFromList(menuData.getProteins(), bowl, true);
+                    break;
+                case 2:
+                    pickToppingFromList(menuData.getPremiumToppings(), bowl, true);
+                    break;
+                case 3:
+                    pickToppingFromList(menuData.getRegularToppings(), bowl, false);
+                    break;
+                case 4:
+                    pickToppingFromList(menuData.getCondiments(), bowl, false);
+                    break;
+                case 0:
+                    addingToppings = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+
+        // special option
+        SpecialOption special = chooseSpecialOption();
+        bowl.setSpecialOption(special);
+
+        order.addBowl(bowl);
+        System.out.println("Bowl added!\n");
+    }
+
+    private BaseType chooseBaseType() {
+        System.out.println("\nChoose base:");
+        BaseType[] bases = BaseType.values();
+        for (int i = 0; i < bases.length; i++) {
+            System.out.println((i + 1) + ") " + bases[i]);
+        }
+        System.out.print("Select base: ");
+        int choice = readInt();
+        int index = choice - 1;
+        if (index >= 0 && index < bases.length) {
+            return bases[index];
+        }
+        System.out.println("Invalid choice. Defaulting to " + bases[0]);
+        return bases[0];
+    }
+
+    private Size chooseSize() {
+        System.out.println("\nChoose size:");
+        Size[] sizes = Size.values();
+        for (int i = 0; i < sizes.length; i++) {
+            System.out.println((i + 1) + ") " + sizes[i]);
+        }
+        System.out.print("Select size: ");
+        int choice = readInt();
+        int index = choice - 1;
+        if (index >= 0 && index < sizes.length) {
+            return sizes[index];
+        }
+        System.out.println("Invalid choice. Defaulting to " + sizes[0]);
+        return sizes[0];
+    }
+
+    private SpecialOption chooseSpecialOption() {
+        System.out.println("\nSpecial option?");
+        System.out.println("1) None");
+        System.out.println("2) POWER_SEAR");
+        System.out.print("Choose: ");
+        int choice = readInt();
+        if (choice == 2) {
+            return SpecialOption.POWER_SEAR;
+        }
+        return SpecialOption.NONE;
+    }
+
+    // Uses a list of toppings, lets user pick one by number
+    private void pickToppingFromList(List<Topping> list, MacroBowl bowl, boolean askExtra) {
+        if (list.isEmpty()) {
+            System.out.println("No options available.");
+            return;
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println((i + 1) + ") " + list.get(i).getName());
+        }
+        System.out.print("Choose (0 to cancel): ");
+        int choice = readInt();
+        if (choice == 0) {
+            return;
+        }
+        int index = choice - 1;
+        if (index < 0 || index >= list.size()) {
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        Topping topping = list.get(index);
+        boolean extra = false;
+
+        if (askExtra) {
+            System.out.print("Extra? (y/n): ");
+            String input = scanner.nextLine().trim().toLowerCase();
+            extra = input.startsWith("y");
+        }
+
+        bowl.addTopping(topping, extra);
+        System.out.println("Added " + topping.getName() + (extra ? " (extra)" : ""));
+    }
+
+    // Add Drink
+
+    private void addDrink(Order order) {
+        System.out.println("\n--- Add Drink ---");
+
+        List<String> drinks = menuData.getDrinks();
+        if (drinks.isEmpty()) {
+            System.out.println("No drinks.");
+            return;
+        }
+
+        for (int i = 0; i < drinks.size(); i++) {
+            System.out.println((i + 1) + ") " + drinks.get(i));
+        }
+        System.out.print("Choose drink (0 to cancel): ");
+        int choice = readInt();
+        if (choice == 0) return;
+
+        int index = choice - 1;
+        if (index < 0 || index >= drinks.size()) {
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        // choose size
+        Size size = chooseSize();
+
+        // For now, we'll just store the drink name in Drink, or adjust to your DrinkType enum if needed.
+        Drink drink = new Drink(/* you may adjust this to match your Drink constructor */ null, size);
+        // If your Drink class instead takes a String, change its constructor and pass drinks.get(index).
+
+        order.addDrink(drink);
+        System.out.println("Drink added!\n");
+    }
+
+    // Add side
+
+    private void addSide(Order order) {
+        System.out.println("\n--- Add Side ---");
+
+        List<String> sides = menuData.getSides();
+        if (sides.isEmpty()) {
+            System.out.println("No sides configured.");
+            return;
+        }
+
+        for (int i = 0; i < sides.size(); i++) {
+            System.out.println((i + 1) + ") " + sides.get(i));
+        }
+        System.out.print("Choose side (0 to cancel): ");
+        int choice = readInt();
+        if (choice == 0) return;
+
+        int index = choice - 1;
+        if (index < 0 || index >= sides.size()) {
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        Side side = new Side(sides.get(index));
+        order.addSide(side);
+        System.out.println("Side added!\n");
+    }
+
+    // CHECKOUT ---------------------------------------------------------
+
+    private void checkout(Order order) {
+        System.out.println("\n=== Checkout ===");
+
+        if (order.isEmpty() && !order.hasDrinkOrSide()) {
+            System.out.println("You must add at least one bowl OR a drink/side.");
+            return;
+        }
+
+        String summary = order.orderSummary(priceTable);
+        System.out.println(summary);
+
+        System.out.print("Confirm order? (y/n): ");
+        String choice = scanner.nextLine().trim().toLowerCase();
+        if (!choice.startsWith("y")) {
+            System.out.println("Checkout cancelled.");
+            return;
+        }
+
+        // write receipt
+        com.pluralsight.util.ReceiptWriter writer = new com.pluralsight.util.ReceiptWriter();
+        try {
+            java.io.File file = writer.saveReceipt(order, priceTable);
+            System.out.println("Receipt saved to: " + file.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Error saving receipt: " + e.getMessage());
+        }
+    }
+
+    // Input Helper
+
+    private int readInt() {
+        while (true) {
+            String line = scanner.nextLine();
+            try {
+                return Integer.parseInt(line.trim());
+            } catch (NumberFormatException ex) {
+                System.out.print("Enter a number: ");
+            }
+        }
+    }
+}
+
+    /* properties:
     private priceTable PriceTable
     private menu  menuData
     private Scanner
@@ -110,4 +429,4 @@ Loop:
 
 
             getUserChoice() int
-    }
+    */

@@ -4,11 +4,11 @@ import com.pluralsight.models.enums.DrinkType;
 import com.pluralsight.models.enums.Size;
 
 public class Drink {
-    private final DrinkType type;
+    private final String name;
     private final Size size;
 
-    public Drink(DrinkType type, Size size) {
-        this.type = type;
+    public Drink(String name, Size size) {
+        this.name = name;
         this.size = size;
     }
 
@@ -18,7 +18,7 @@ public class Drink {
 
     @Override
     public String toString() {
-        return type + " (" + size + ")";
+        return name + " (" + size + ")";
     }
 }
 
@@ -31,5 +31,5 @@ public class Drink {
         methods: getPrice() number int
                  getString() String
    */
-}
+
 
