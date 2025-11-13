@@ -28,16 +28,19 @@ public class UserInterface {
             System.out.println("           1) New Order");
             System.out.println("           0) Exit");
             System.out.print("             Choose an option: ");
+            pause(300);
 
             int choice = readInt();
 
             if (choice == 1) {
                 startNewOrder();
             } else if (choice == 0) {
+                pause(300);
                 System.out.println("Thank You!");
                 break;
             } else {
-                System.out.println("Invalid choice. Please try again.\n");
+                pause(300);
+                System.out.println("\nInvalid choice. Please try again.\n");
             }
         }
     }
@@ -47,7 +50,7 @@ public class UserInterface {
         Order order = new Order();
 
         while (true) {
-            System.out.println("\n=== Order Screen ===");
+            System.out.println("\n=== O R D E R   S C R E E N ===");
             System.out.println("(Newest items will appear first on receipt)");
             System.out.println();
             System.out.println("1) Add Bowl");
@@ -169,7 +172,7 @@ public class UserInterface {
     private SpecialOption chooseSpecialOption() {
         System.out.println("\nSpecial option?");
         System.out.println("1) None");
-        System.out.println("2) POWER_SEAR");
+        System.out.println("2) POWER SEAR");
         System.out.print("Choose: ");
         int choice = readInt();
         if (choice == 2) {
@@ -209,7 +212,7 @@ public class UserInterface {
         }
 
         bowl.addTopping(topping, extra);
-        System.out.println("Added " + topping.getName() + (extra ? " (extra)" : ""));
+        System.out.println("\nAdded " + topping.getName() + (extra ? " (extra)" : ""));
     }
 
     // Add Drink
@@ -219,7 +222,7 @@ public class UserInterface {
 
         List<String> drinks = menuData.getDrinks();
         if (drinks.isEmpty()) {
-            System.out.println("No drinks.");
+            System.out.println("No drink.");
             return;
         }
 
@@ -291,6 +294,7 @@ public class UserInterface {
 
         System.out.print("Confirm order? (y/n): ");
         String choice = scanner.nextLine().trim().toLowerCase();
+
         if (!choice.startsWith("y")) {
             System.out.println("Checkout cancelled.");
             return;
@@ -317,8 +321,18 @@ public class UserInterface {
                 System.out.print("Please enter a number: ");
             }
         }
+
     }
-}
+        // For slight delay
+        private void pause(long ms) {
+            try {
+                Thread.sleep(ms);
+            } catch (Exception ignored) {
+            }
+        }
+
+    }
+
 
     /* properties:
     private priceTable PriceTable
