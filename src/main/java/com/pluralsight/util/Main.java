@@ -1,12 +1,27 @@
 package com.pluralsight.util;
 
 import com.pluralsight.models.MenuData;
+import com.pluralsight.models.PriceTable;
+import com.pluralsight.ui.UserInterface;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) {
 
+        // create pricing rules
+        PriceTable priceTable = new PriceTable();
+
+        // create and seed menu
+        MenuData menu = createMenuData();
+
+        // create UI and start the home screen loop
+        UserInterface ui = new UserInterface(priceTable, menu);
+        ui.displayHomeScreen();
+    }
+
+    private static MenuData createMenuData() {
         MenuData menu = new MenuData();
 
 // proteins
@@ -52,13 +67,9 @@ public class Main {
         menu.addDrink("Protein Powah");
         menu.addDrink("Fountain Drink");
 
-
-
-
-
-
-
-
+        return menu;
+    }
+}
 
         // making sure repository pushes
        /* Pricetable pt = createPriceTable()
@@ -121,9 +132,7 @@ public class Main {
         menu.addDrinkType(" Protein Powah")
         menu.addDrinkType("Fountain Drink")
         return menu
-}
+
 
         */
 
-    }
-}

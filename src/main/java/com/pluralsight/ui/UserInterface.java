@@ -24,10 +24,10 @@ public class UserInterface {
 
     public void displayHomeScreen() {
         while (true) {
-            System.out.println("=== MacroManage - Home ===");
-            System.out.println("1) New Order");
-            System.out.println("0) Exit");
-            System.out.print("Choose an option: ");
+            System.out.println("˚ ༘❀⋆｡˚ ┏━━━ W E L C O M E   T O   M A C R O M A N A G E ━━━┓˚ ༘⋆｡˚ ❀");
+            System.out.println("           1) New Order");
+            System.out.println("           0) Exit");
+            System.out.print("             Choose an option: ");
 
             int choice = readInt();
 
@@ -314,7 +314,7 @@ public class UserInterface {
             try {
                 return Integer.parseInt(line.trim());
             } catch (NumberFormatException ex) {
-                System.out.print("Enter a number: ");
+                System.out.print("Please enter a number: ");
             }
         }
     }

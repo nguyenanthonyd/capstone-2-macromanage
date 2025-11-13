@@ -95,11 +95,11 @@ public class MacroBowl {
                 }
             }
         } else {
-            StringBuilder.append(" (no toppings)");
+            stringBuilder.append(" (no toppings)");
         }
 
         if (specialOption != SpecialOption.NONE) {
-            StringBuilder.append(" | ").append(specialOption);
+            stringBuilder.append(" | ").append(specialOption);
         }
 
         return stringBuilder.toString();
