@@ -35,28 +35,38 @@ This project was developed as part of the **Year Up / Pluralsight Java Applicati
 
 🧠 Interesting Piece of Code
 
+---
 private void pickToppingFromList(List<Topping> list, MacroBowl bowl, boolean askExtra) {
-    if (list.isEmpty()) {
-        System.out.println("No options available.");
-        return;
+        if (list.isEmpty()) {
+            System.out.println("No options available.");
+            return;
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println((i + 1) + ") " + list.get(i).getName());
+        }
+        System.out.print("Choose (0 to cancel): ");
+        int choice = readInt();
+        if (choice == 0) {
+            return;
+        }
+        int index = choice - 1;
+        if (index < 0 || index >= list.size()) {
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        Topping topping = list.get(index);
+        boolean extra = false;
+
+        if (askExtra) {
+            pause(300);
+            extra = yesNo("Extra? (y/n): ");
+        }
+
+        bowl.addTopping(topping, extra);
+        System.out.println("\nAdded " + topping.getName() + (extra ? " (extra)" : ""));
+
     }
 
-    for (int i = 0; i < list.size(); i++) {
-        System.out.println((i + 1) + ") " + list.get(i).getName());
-    }
-
-    System.out.print("Choose (0 to cancel): ");
-    int index = readInt() - 1;
-    if (index == -1) return;
-    if (index < 0 || index >= list.size()) {
-        System.out.println("Invalid choice.");
-        return;
-    }
-
-    Topping topping = list.get(index);
-    boolean extra = askExtra && yesNo("Extra? (y/n): ");
-
-    bowl.addTopping(topping, extra);
-    System.out.println("\nAdded " + topping.getName() + (extra ? " (extra)" : ""));
-}
 
