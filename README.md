@@ -35,6 +35,7 @@ This project was developed as part of the **Year Up / Pluralsight Java Applicati
 
 🧠 Interesting Piece of Code
 
+This method is interesting because it packs a lot of power into a small, clean design. It dynamically builds a menu from any list of toppings, safely handles user input, and uses smart boolean logic to only ask for “extra” when needed. Instead of repeating code for every topping category, one reusable method handles everything—making the app flexible, scalable, and surprisingly professional for such a simple-looking function.
 ---
 private void pickToppingFromList(List<Topping> list, MacroBowl bowl, boolean askExtra) {
         if (list.isEmpty()) {
