@@ -17,7 +17,7 @@ This project was developed as part of the **Year Up / Pluralsight Java Applicati
 ---
 # ✦✦ 𝙎 𝘾 𝙍 𝙀 𝙀 𝙉 𝙎 𝙃 𝙊 𝙏 𝙎 ✦✦
 
-<img width="1919" height="1008" alt="Screenshot 2025-11-14 020050" src="https://github.com/user-attachments/assets/05aaf858-916d-4903-8a2b-0714faccf8f1" /
+<img width="1919" height="1008" alt="Screenshot 2025-11-14 020050" src="https://github.com/user-attachments/assets/05aaf858-916d-4903-8a2b-0714faccf8f1" />
 <img width="1916" height="1017" alt="Screenshot 2025-11-14 015702" src="https://github.com/user-attachments/assets/acd96414-c5b6-4492-b34d-77e94dcdacda" />
 <img width="1919" height="1019" alt="Screenshot 2025-11-14 015713" src="https://github.com/user-attachments/assets/ec8d81ff-b884-4715-8958-3e77534265c8" />
 <img width="1919" height="1014" alt="Screenshot 2025-11-14 015723" src="https://github.com/user-attachments/assets/bf51fb3a-897f-4867-b389-4ddea80de394" />
