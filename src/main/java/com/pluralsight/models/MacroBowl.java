@@ -8,7 +8,7 @@ import com.pluralsight.models.enums.ToppingCategory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MacroBowl extends MenuData{
+public class MacroBowl {
 
     public static final String WHITE = "\u001B[97m";
     public static final String RESET = "\u001B[0m";
