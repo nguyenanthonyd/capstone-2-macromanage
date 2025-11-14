@@ -48,7 +48,7 @@ public class Order {
         return total;
     }
 
-    // (Newest first)
+    // (
         public String orderSummary(PriceTable priceTable) {
             StringBuilder stringBuilder = new StringBuilder();
 
