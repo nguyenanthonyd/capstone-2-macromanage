@@ -22,8 +22,7 @@ This project was developed as part of the **Year Up / Pluralsight Java Applicati
 <img width="1919" height="1014" alt="Screenshot 2025-11-14 015723" src="https://github.com/user-attachments/assets/bf51fb3a-897f-4867-b389-4ddea80de394" />
 <img width="1917" height="1022" alt="Screenshot 2025-11-14 015736" src="https://github.com/user-attachments/assets/36a1ae98-be08-44e2-ae3f-3da5bfb12aac" />
 <img width="1919" height="1016" alt="Screenshot 2025-11-14 015750" src="https://github.com/user-attachments/assets/7ad4b7bf-8a67-4e05-80d6-2b2f8aae146f" />
-<img width="1919" height="1008" alt="Screenshot 2025-11-14 020050" src="https://github.com/user-attachments/assets/05aaf858-916d-4903-8a2b-0714faccf8f1" />
-<img width="1885" height="848" alt="Screenshot 2025-11-14 021230" src="https://github.com/user-attachments/assets/504795b7-1802-40ea-b6fb-a434d0e2a018" />
+<img width="1919" height="1008" alt="Screenshot 2025-11-14 020050" src="https://github.com/user-attachments/assets/05aaf858-916d-4903-8a2b-0714faccf8f1" /
 <img width="1919" height="1019" alt="Screenshot 2025-11-14 015441" src="https://github.com/user-attachments/assets/5f7bad15-c6f9-41ed-8739-c33ca2cec3e7" />
 <img width="1912" height="1023" alt="Screenshot 2025-11-14 015458" src="https://github.com/user-attachments/assets/e3d17fa2-ff19-47a8-9900-22ecae357ff2" />
 <img width="1918" height="1022" alt="Screenshot 2025-11-14 015512" src="https://github.com/user-attachments/assets/feb9fac0-9218-4d89-bea2-9b5ac684b06e" />
