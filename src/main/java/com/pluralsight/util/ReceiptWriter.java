@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
 
-    private final File receiptsFolder = new File("receipts");
+    private final File receiptsFolder = new File("src/main/resources/receipts");
 
     public File saveReceipt(Order order, PriceTable priceTable) throws IOException {
 
@@ -21,19 +21,24 @@ public class ReceiptWriter {
             receiptsFolder.mkdirs(); //make directory
         }
 
-        // Format: 20250318-143255.txt
+        // Format (Assignment Required)
+        LocalDateTime now =LocalDateTime.now();
         String timestamp = LocalDateTime.now()
                 .format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
         String fileName = timestamp + ".txt";
 
         File receiptFile = new File(receiptsFolder, fileName);
 
-        // Write file with PrintWriter (Workbook 4 style)
+        // Date Format in receipt
+        String displayDate = now.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+
+                // Write file with PrintWriter
         try (PrintWriter writer = new PrintWriter(new FileWriter(receiptFile))) {
             writer.print(order.orderSummary(priceTable));
         }
 
         return receiptFile;
+
     }
 }
 
