@@ -34,3 +34,28 @@ This project was developed as part of the **Year Up / Pluralsight Java Applicati
 <img width="1919" height="1022" alt="Screenshot 2025-11-14 015652" src="https://github.com/user-attachments/assets/63022464-9382-4f8b-adc1-42b16327e7b2" />
 
 🧠 Interesting Piece of Code
+private void pickToppingFromList(List<Topping> list, MacroBowl bowl, boolean askExtra) {
+    if (list.isEmpty()) {
+        System.out.println("No options available.");
+        return;
+    }
+
+    for (int i = 0; i < list.size(); i++) {
+        System.out.println((i + 1) + ") " + list.get(i).getName());
+    }
+
+    System.out.print("Choose (0 to cancel): ");
+    int index = readInt() - 1;
+    if (index == -1) return;
+    if (index < 0 || index >= list.size()) {
+        System.out.println("Invalid choice.");
+        return;
+    }
+
+    Topping topping = list.get(index);
+    boolean extra = askExtra && yesNo("Extra? (y/n): ");
+
+    bowl.addTopping(topping, extra);
+    System.out.println("\nAdded " + topping.getName() + (extra ? " (extra)" : ""));
+}
+
