@@ -21,10 +21,7 @@ public class PriceTable {
     }
 
     // Topping pricing
-    public double toppingCharge(ToppingCategory category,
-                                Size size,
-                                boolean extra,
-                                boolean premium) {
+    public double toppingCharge(ToppingCategory category, Size size, boolean extra, boolean premium) {
 
         // regular toppings & condiments are free
         if (category == ToppingCategory.REGULAR_TOPPING ||

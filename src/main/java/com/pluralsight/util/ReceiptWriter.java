@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
 
-    private final File receiptsFolder = new File("src/main/resources/receipts");
+    private final File receiptsFolder = new File("receipts");
 
     public File saveReceipt(Order order, PriceTable priceTable) throws IOException {
 

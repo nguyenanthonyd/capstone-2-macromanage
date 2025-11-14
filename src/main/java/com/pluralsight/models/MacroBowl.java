@@ -8,11 +8,14 @@ import com.pluralsight.models.enums.ToppingCategory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MacroBowl {
+public class MacroBowl extends MenuData{
+
+    public static final String WHITE = "\u001B[97m";
+    public static final String RESET = "\u001B[0m";
 
     private Size size;
     private BaseType baseType;
-    private List<ToppingSelection> toppings;
+    private List<ToppingSelection> toppings = new ArrayList<>();
     private SpecialOption specialOption = SpecialOption.NONE;
 
     public MacroBowl(Size size, BaseType baseType) {
@@ -60,68 +63,88 @@ public class MacroBowl {
         this.specialOption = option;
     }
 
+    public boolean hasProtein() {
+        for (ToppingSelection toppingSelection : toppings) {
+            Topping topping = toppingSelection.getTopping();
+            if (topping.getCategory() == ToppingCategory.PROTEIN) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     // Price calculation
     public double getPrice(PriceTable priceTable) {
         double total = priceTable.baseBowl(size);
 
         for (ToppingSelection toppingSelection : toppings) {
             Topping topping = toppingSelection.getTopping();
-            total += priceTable.toppingCharge(
-                    topping.getCategory(),
-                    size,
-                    toppingSelection.isExtra(),
-                    topping.isPremium()
-            );
+            total += priceTable.toppingCharge(topping.getCategory(), size, toppingSelection.isExtra(),
+                    topping.isPremium());
         }
 
         total += priceTable.specialSurcharge(specialOption, size);
 
         return total;
     }
+    public int getCalories() {
+        int total = 0;
+
+        for (ToppingSelection toppingSelection : toppings) {
+            int cals = toppingSelection.getTopping().getCalories();
+            total += cals;
+
+            if (toppingSelection.isExtra()) {
+                total += cals;
+            }
+        }
+
+        return total;
+    }
 
     // Receipt order screen description
+    public String description () {
+            StringBuilder stringBuilder = new StringBuilder();
 
-    public String description() {
-        StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(size).append(" ").append(baseType).append("bowl");
 
-        stringBuilder.append(size).append(" ").append(baseType).append(" bowl");
-
-        if (!toppings.isEmpty()) {
-            stringBuilder.append(" with ");
-            for (int i = 0; i < toppings.size(); i++) {
-                stringBuilder.append(toppings.get(i).label());
-                if (i < toppings.size() - 1) {
-                    stringBuilder.append(", ");
+            if (!toppings.isEmpty()) {
+                stringBuilder.append(" with ");
+                for (int i = 0; i < toppings.size(); i++) {
+                    stringBuilder.append(toppings.get(i).label());
+                    if (i < toppings.size() - 1) {
+                        stringBuilder.append(", ");
+                    }
                 }
+            } else {
+                stringBuilder.append(" (no toppings)");
             }
-        } else {
-            stringBuilder.append(" (no toppings)");
+
+            if (specialOption != SpecialOption.NONE) {
+                stringBuilder.append(" + ").append(specialOption);
+            }
+
+            return stringBuilder.toString();
         }
 
-        if (specialOption != SpecialOption.NONE) {
-            stringBuilder.append(" | ").append(specialOption);
+        // Getters
+        public Size getSize () {
+            return size;
         }
 
-        return stringBuilder.toString();
-    }
+        public BaseType getBaseType () {
+            return baseType;
+        }
 
-    // Getters
-    public Size getSize() {
-        return size;
-    }
+        public SpecialOption getSpecialOption () {
+            return specialOption;
+        }
 
-    public BaseType getBaseType() {
-        return baseType;
+        public List<ToppingSelection> getToppings () {
+            return new ArrayList<>(toppings);
+        }
     }
-
-    public SpecialOption getSpecialOption() {
-        return specialOption;
-    }
-
-    public List<ToppingSelection> getToppings() {
-        return new ArrayList<>(toppings);
-    }
-}
 
 
     /* properties:
@@ -159,6 +182,6 @@ public class MacroBowl {
              add special option surcharge ( powersear)
              regular toppings and condiments are included
             return total
-}
+
 
  */

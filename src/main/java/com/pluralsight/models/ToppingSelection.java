@@ -17,10 +17,13 @@ public class ToppingSelection {
         return extra;
     }
 
-  // Used for printing on receipt
+
+    
+
+    // Used for printing on receipt
     public String label() {
         if (extra) {
-            return topping.toString() + "(extra)";
+            return topping.toString() + "(+extra)";
         }
         return topping.toString();
     }

@@ -5,11 +5,14 @@ public class Topping {
     private final String name;
     private final ToppingCategory category;
     private final boolean premium; // true for premium toppings
+    private int calories;
 
-    public Topping(String name, ToppingCategory category, boolean premium) {
+    public Topping(String name, ToppingCategory category, boolean premium, int calories) {
         this.premium = premium;
         this.category = category;
         this.name = name;
+        this.calories = calories;
+
     }
 
     public String getName() {
@@ -23,20 +26,28 @@ public class Topping {
     public boolean isPremium() {
         return premium;
     }
+
+    public int getCalories() {
+        return calories;
+    }
     //Helper Method
     public boolean preventsExtra() {
-        if (category == ToppingCategory.REGULAR_TOPPING||
-        category == ToppingCategory.CONDIMENTS) {
+        return category == ToppingCategory.REGULAR_TOPPING||
+        category == ToppingCategory.CONDIMENTS;
 
-            return true;
+    }
+        // used on receipts
+        public String label() {
+            final String WHITE = "\u001B[97m";
+            final String RESET = "\u001B[0m";
+
+            return name + " (" + WHITE + calories + " cal" + RESET + ")";
+    }
+        @Override
+        public String toString() {
+            return label();
         }
-        return false;
     }
-    @Override
-    public String toString() {
-        return name;
-    }
-}
     /* properties:
         name
         category // protein, extra toppings ,addon ,regular_Topping, sauce

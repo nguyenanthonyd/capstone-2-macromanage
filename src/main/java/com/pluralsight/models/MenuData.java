@@ -15,60 +15,52 @@ public class MenuData {
     private List<String> sides = new ArrayList<>();
     private List<String> drinks = new ArrayList<>();
 
-    //Protein
+    //Methods
 
-    public void addProtein(String name) {
-        proteins.add(new Topping(name, ToppingCategory.PROTEIN, true));
+    public void addProtein(String name, int calories) {
+        proteins.add(new Topping(name, ToppingCategory.PROTEIN, false, calories));
     }
+
+    public void addPremiumTopping(String name, int calories) {
+        premiumToppings.add(new Topping(name, ToppingCategory.PREMIUM, true, calories));
+    }
+
+    public void addRegularTopping(String name, int calories) {
+        regularToppings.add(new Topping(name, ToppingCategory.REGULAR_TOPPING, false, calories));
+    }
+
+    public void addCondiment(String name, int calories) {
+        condiments.add(new Topping(name, ToppingCategory.CONDIMENTS, false, calories));
+    }
+
+    public void addSide(String name, int calories) {
+        sides.add(name + " (" + calories + " cal)");
+    }
+
+    public void addDrink(String name, int calories) {
+        drinks.add(name + " (" + calories + " cal)");
+    }
+
+    //getters
 
     public List<Topping> getProteins() {
         return proteins;
-    }
-
-    //Premium Toppings
-
-    public void addPremiumTopping(String name) {
-        premiumToppings.add(new Topping(name, ToppingCategory.PREMIUM, true));
     }
 
     public List<Topping> getPremiumToppings() {
         return premiumToppings;
     }
 
-    //Regular Toppings
-
-    public void addRegularTopping(String name) {
-        regularToppings.add(new Topping(name, ToppingCategory.REGULAR_TOPPING, false));
-    }
-
     public List<Topping> getRegularToppings() {
         return regularToppings;
-    }
-
-    //Condiments
-
-    public void addCondiment(String name) {
-        condiments.add(new Topping(name, ToppingCategory.CONDIMENTS, false));
     }
 
     public List<Topping> getCondiments() {
         return condiments;
     }
 
-    //Sides
-
-    public void addSide(String name) {
-        sides.add(name);
-    }
-
     public List<String> getSides() {
         return sides;
-    }
-
-    //Drinks
-
-    public void addDrink(String name) {
-        drinks.add(name);
     }
 
     public List<String> getDrinks() {
