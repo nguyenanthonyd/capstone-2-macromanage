@@ -88,20 +88,6 @@ public class MacroBowl {
 
         return total;
     }
-    public int getCalories() {
-        int total = 0;
-
-        for (ToppingSelection toppingSelection : toppings) {
-            int cals = toppingSelection.getTopping().getCalories();
-            total += cals;
-
-            if (toppingSelection.isExtra()) {
-                total += cals;
-            }
-        }
-
-        return total;
-    }
 
     // Receipt order screen description
     public String description () {
