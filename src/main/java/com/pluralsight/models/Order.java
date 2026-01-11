@@ -3,6 +3,9 @@ package com.pluralsight.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.pluralsight.models.MacroBowl.RESET;
+import static com.pluralsight.models.MacroBowl.WHITE;
+
 public class Order {
 
     private final List<MacroBowl> bowls = new ArrayList<>();
@@ -48,7 +51,7 @@ public class Order {
         return total;
     }
 
-    // (
+
         public String orderSummary(PriceTable priceTable) {
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -86,9 +89,18 @@ public class Order {
             stringBuilder.append("--------------------------\n");
             stringBuilder.append("TOTAL: $").append(String.format("%.2f", getTotal(priceTable))).append("\n");
 
-            return stringBuilder.toString();
-        }
 
+            // Calculate total calories
+            int totalCalories = 0;
+            for (MacroBowl bowl : bowls) {
+                totalCalories += bowl.getTotalCalories();
+            }
+            stringBuilder.append("TOTAL CALORIES: ").append(WHITE).append(totalCalories)
+                    .append(" cal").append(RESET).append("\n");
+
+            return stringBuilder.toString();
+
+        }
     }
 
 

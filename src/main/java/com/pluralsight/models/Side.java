@@ -1,6 +1,6 @@
 package com.pluralsight.models;
 
-import com.pluralsight.models.PriceTable;
+
 
 public class Side {
     private final String name;

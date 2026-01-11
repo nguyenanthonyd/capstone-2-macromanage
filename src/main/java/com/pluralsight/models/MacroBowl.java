@@ -32,7 +32,36 @@ public class MacroBowl {
         }
         toppings.add(new ToppingSelection(topping, extra));
     }
+    private int getBaseCalories() {
+        int baseCalories;
 
+        switch (baseType) {
+            case WHITE_RICE:
+                baseCalories = 200;
+                break;
+            case BROWN_RICE:
+                baseCalories = 215;
+                break;
+            case MIXED_GREENS:
+                baseCalories = 10;
+                break;
+            default:
+                baseCalories = 0;
+        }
+
+        // Scale by size
+        switch (size) {
+            case SMALL:
+                return baseCalories;
+            case MEDIUM:
+                return (int)(baseCalories * 1.5);
+            case LARGE:
+                return baseCalories * 2;
+            default:
+                return baseCalories;
+        }
+
+    }
     // helper methods
 
     public void addProtein(Topping topping, boolean extra) {
@@ -88,17 +117,49 @@ public class MacroBowl {
 
         return total;
     }
+    public int getTotalCalories() {
+        int total = getBaseCalories();
 
+        // Add all topping calories (scaled by size)
+        for (ToppingSelection toppingSelection : toppings) {
+            Topping topping = toppingSelection.getTopping();
+            int scaledCalories = scaleToppingCaloriesBySize(topping.getCalories());
+
+            total += scaledCalories;  // Add normal portion (scaled)
+
+            // If it's extra, add the scaled calories AGAIN
+            if (toppingSelection.isExtra()) {
+                total += scaledCalories;  // Add extra portion (also scaled)
+            }
+        }
+
+        return total;
+    }
+
+    //Helper method to scale topping calories by size
+    private int scaleToppingCaloriesBySize(int baseCalories) {
+        switch (size) {
+            case SMALL:
+                return baseCalories;
+            case MEDIUM:
+                return (int) (baseCalories * 1.5);
+            case LARGE:
+                return baseCalories * 2;
+            default:
+                return baseCalories;
+        }
+    }
     // Receipt order screen description
     public String description () {
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.append(size).append(" ").append(baseType).append("bowl");
+            stringBuilder.append(size).append(" ").append(baseType)
+                    .append(" (").append(WHITE).append(getBaseCalories()).append(" cal").append(RESET).append(") bowl");
 
             if (!toppings.isEmpty()) {
                 stringBuilder.append(" with ");
                 for (int i = 0; i < toppings.size(); i++) {
-                    stringBuilder.append(toppings.get(i).label());
+                    stringBuilder.append(toppings.get(i).label(size));
                     if (i < toppings.size() - 1) {
                         stringBuilder.append(", ");
                     }
