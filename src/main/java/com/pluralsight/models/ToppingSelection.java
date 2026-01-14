@@ -50,4 +50,4 @@ public class ToppingSelection {
     // Add color constants at the top of the class
     public static final String WHITE = "\u001B[97m";
     public static final String RESET = "\u001B[0m";
-}
+}//
