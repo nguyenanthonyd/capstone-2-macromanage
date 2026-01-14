@@ -1,0 +1,8 @@
+--- MacroManage Receipt ---
+
+Bowls:
+  - SMALL BROWN_RICE bowl with Steak, Fried Egg(extra), Bell Peppers, Mango Salsa, Thai Chimichurri, Cucumber, Japanese Sweet Potato Cubes(extra) | POWER_SEAR
+    $8.50
+
+--------------------------
+TOTAL: $8.50

@@ -1,0 +1,11 @@
+--- MacroManage Receipt ---
+
+Bowls:
+  - SMALL WHITE_RICEbowl (no toppings) + POWER_SEAR
+    $6.00
+
+  - MEDIUM BROWN_RICEbowl with Chicken ([97m140 cal[0m)
+    $9.00
+
+--------------------------
+TOTAL: $15.00

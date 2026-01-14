@@ -1,0 +1,8 @@
+--- MacroManage Receipt ---
+
+Bowls:
+  - SMALL BROWN_RICE bowl with Steak, Steak, Steak(extra), Pork
+    $10.00
+
+--------------------------
+TOTAL: $10.00

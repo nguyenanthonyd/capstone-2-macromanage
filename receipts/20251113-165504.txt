@@ -1,0 +1,8 @@
+--- MacroManage Receipt ---
+
+Bowls:
+  - LARGE WHITE_RICE bowl with Steak(extra), Fried Egg(extra), Spinach, Cucumber, Bell Peppers, Thai Chimichurri | POWER_SEAR
+    $16.25
+
+--------------------------
+TOTAL: $16.25

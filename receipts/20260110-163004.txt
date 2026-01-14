@@ -1,0 +1,8 @@
+--- MacroManage Receipt ---
+
+Bowls:
+  - SMALL BROWN_RICEbowl with Steak(+extra) + POWER_SEAR
+    $7.50
+
+--------------------------
+TOTAL: $7.50

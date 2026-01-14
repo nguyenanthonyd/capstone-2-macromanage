@@ -1,0 +1,11 @@
+--- MacroManage Receipt ---
+
+Bowls:
+  - SMALL BROWN_RICEbowl (no toppings)
+    $5.50
+
+Drinks:
+  - Acai Potion - A refreshing berry-forward acai drink with a smooth, icy finish. (180 cal) (LARGE)  $3.00
+
+--------------------------
+TOTAL: $8.50

@@ -1,0 +1,8 @@
+--- MacroManage Receipt ---
+
+Bowls:
+  - LARGE WHITE_RICE (200 cal) bowl with Steak ([97m180 cal[0m)(+extra), Fried Egg ([97m90 cal[0m)(+extra), Cucumber ([97m10 cal[0m) + POWER_SEAR
+    $16.25
+
+--------------------------
+TOTAL: $16.25
